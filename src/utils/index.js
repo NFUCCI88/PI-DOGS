@@ -13,14 +13,14 @@ const getDogsDb = async ()=>{
         }
     })
 
-    const DogsDbClean = dogsDb.map((elem)=>{ 
+    const DogsDbClean = dogsDb.map((dog)=>{ 
         return{
-            id: elem.id,
-            name: elem.name,
-            height: elem.height,
-            lifeSpan: elem.age + " years",
-            img: elem.img,
-            temperament: elem.temperaments.map(elem => elem.name)
+            id: dog.id,
+            name: dog.name,
+            height: dog.height,
+            lifeSpan: dog.age + " years",
+            img: dog.img,
+            temperament: dog.temperaments.map(temp => temp.name)
         }
     })
 
