@@ -1,4 +1,4 @@
-const { getAllDogs  } = require("../utils")
+const getAllDogs = require("../utils")
 
 const searchNameDog = async (req, res, next) =>{
     const {name} = req.query; //Desestructuramos el query enviado en la URL
@@ -14,4 +14,4 @@ const searchNameDog = async (req, res, next) =>{
 
 };
 
-module.exports = {searchNameDog}
+module.exports = searchNameDog;

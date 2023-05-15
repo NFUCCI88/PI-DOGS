@@ -3,7 +3,7 @@ const { Temperament } = require("../db")
 const axios = require("axios")
 const {YOUR_API_KEY} = process.env;
 
-const allTemperaments = async () => {
+const TemperamentsDB = async () => {
     try {
         const checkTemperaments = await Temperament.findAll();// Buscamos si ya existen temperamentos en la base de datos
         if(!checkTemperaments.length) {// Si no existen temperamentos, los creamos
@@ -27,14 +27,10 @@ const allTemperaments = async () => {
                 name:null || "",// Eliminamos los temperamentos que no tienen nombre
             },
         });
-        
-       
     } 
-
-   
     } catch (error) {
         throw new Error(error);
     }
 };
 
-module.exports = allTemperaments;
+module.exports = TemperamentsDB;

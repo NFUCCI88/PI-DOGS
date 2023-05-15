@@ -45,4 +45,4 @@ const updateDog = async (req, res) =>{
     }
 };
 
-module.exports = {updateDog}
+module.exports = updateDog;

@@ -1,11 +1,11 @@
 const {Router} = require("express");
-const allTemperaments = require("../controllers/allTemperaments");
+const getTemperaments = require("../controllers/getTemperaments");
 
 const temperamentsRouter = Router();
 
 
-temperamentsRouter.get("/", allTemperaments);
+temperamentsRouter.get("/", getTemperaments);
 
 
-module.exports = temperamentsRouter
+module.exports = temperamentsRouter;
 

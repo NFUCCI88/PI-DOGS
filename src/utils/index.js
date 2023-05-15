@@ -29,7 +29,7 @@ const getDogsDb = async ()=>{
     })
 
     return DogsDbClean;
-} 
+};
 
 const getDogsApi = async() => {
 // Hacemos la petición a la API y guardamos los perros obtenidos en una variable
@@ -51,20 +51,11 @@ const getDogsApi = async() => {
     return dogsApiCLean;
     };
 
-    const getAllDogs = async()=>{ 
+    const getAllDogs = async()=>{ //Obtenemos los perros de la API y de la BD
          const dogsDb = await getDogsDb();             
          const dogsApi = await getDogsApi();
          return [...dogsDb, ...dogsApi] 
 
-    }
-
-    const deleteDog = async (id) => {
-        const dog = await Dog.findByPk(id); // Buscamos el perro por id
-        await dog.destroy(); // Eliminamos el perro
-    
-        return dog; // Retornamos el perro eliminado
     };
 
-
-
-module.exports = {getAllDogs, deleteDog }
+module.exports = getAllDogs;

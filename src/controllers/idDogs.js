@@ -1,4 +1,4 @@
-const { getAllDogs  } = require("../utils")
+const  getAllDogs   = require("../utils")
 
 const idDogs = async (req, res)=>{
     const {id} = req.params; // Desestructuramos el id enviado en los params
@@ -10,4 +10,4 @@ const idDogs = async (req, res)=>{
     : res.status(404).send(`Dog not found`)// Si no se encuentra el perro, retornamos un mensaje de error
 }
 
-module.exports = { idDogs }
+module.exports = idDogs;
