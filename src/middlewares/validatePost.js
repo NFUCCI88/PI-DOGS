@@ -1,6 +1,6 @@
 
 const validatePost = (req, res, next) => {
-    const { name, heightMin, heightMax, weightMin, weightMax, img, lifeSpanMin, lifeSpanMax, temperament} = req.body;
+    const {name, heightMin, heightMax, weightMin, weightMax, lifeSpanMin, lifeSpanMax, img, temperament} = req.body;
     if (!name) return res.status(400).send(`Missing name`);
     if (!heightMin) return res.status(400).send(`Missing height`);
     if (!heightMax) return res.status(400).send(`Missing height`);
@@ -12,6 +12,7 @@ const validatePost = (req, res, next) => {
     if (!temperament) return res.status(400).send(`Missing temperament/s`)
     next()
 }
+
 
 module.exports={
     validatePost,

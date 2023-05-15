@@ -1,5 +1,5 @@
 const {Router} = require("express");
-const {allTemperaments} = require("../controllers/allTemperaments");
+const allTemperaments = require("../controllers/allTemperaments");
 
 const temperamentsRouter = Router();
 
@@ -7,5 +7,5 @@ const temperamentsRouter = Router();
 temperamentsRouter.get("/", allTemperaments);
 
 
-module.exports = temperamentsRouter;
+module.exports = temperamentsRouter
 

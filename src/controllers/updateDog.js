@@ -4,10 +4,11 @@ const { Dog, Temperament} = require("../db");
 
 
 // Creamos un nuevo perro con los datos enviados en el body
-const postDog = async (req, res) =>{
-    const {name, heightMin, heightMax, weightMin, weightMax, lifeSpanMin, lifeSpanMax, img, temperament} = req.body;// Creamos un nuevo perro con los datos enviados en el body
+const updateDog = async (req, res) =>{
+    const {id} = req.params;
+    const {name, heightMin, heightMax, weightMin, weightMax, lifeSpanMin, lifeSpanMax, img, temperament} = req.body;
     try {
-        const newDog = await Dog.create({
+        const newDog = await Dog.update({
             name: name, 
             heightMin: heightMin, 
             heightMax: heightMax,
@@ -16,7 +17,14 @@ const postDog = async (req, res) =>{
             img: img,
             lifeSpanMin: lifeSpanMin,
             lifeSpanMax: lifeSpanMax
-            });
+            },
+            {
+                where:{
+                    id,
+                },
+                
+            }
+            );
 // Buscamos los temperamentos que se enviaron en el body
         const getTemperament= await Temperament.findAll({
             where:{
@@ -24,13 +32,17 @@ const postDog = async (req, res) =>{
             }
 
         });
+        // Eliminamos los temperamentos del perro
+	    const dog = await Dog.findByPk(id);
+	    await dog.setTemperaments([]);
+
         // Asignamos los temperamentos al perro creado
-        await newDog.addTemperament(getTemperament)
-        res.status(201).json(newDog)// Retornamos el perro creado
+        await dog.addTemperament(getTemperament)
+        res.status(201).json(dog)// Retornamos el perro creado
         
     } catch (error) {
         res.status(400).json({error: error.message});
     }
 };
 
-module.exports = {postDog}
+module.exports = {updateDog}
