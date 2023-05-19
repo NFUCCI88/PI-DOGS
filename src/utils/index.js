@@ -40,8 +40,8 @@ const getDogsApi = async() => {
              id:dog.id,
              img:dog.image.url,
              name: dog.name,
-             height:dog.height,
-             weight:dog.weight,
+             height:dog.height.metric,
+             weight:isNaN(dog.weight.metric[0])? "5 - 30" : dog.weight.metric,
              lifeSpan:dog.life_span,
              temperament: dog.temperament,
              from: "API"
