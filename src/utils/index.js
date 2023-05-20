@@ -22,8 +22,7 @@ const getDogsDb = async ()=>{
 			heightMax: dog.heightMax,
 			weightMin: dog.weightMin,
 			weightMax: dog.weightMax,
-			lifeSpanMin: dog.lifeSpanMin,
-            lifeSpanMax: dog.lifeSpanMax,
+            life_span: dog.life_span,
             temperament: dog.temperaments.map(temp => temp.name)// Hacemos un map por cada temperamento que tenga el perro
         }
     })

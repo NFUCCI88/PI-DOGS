@@ -5,7 +5,7 @@ const { Dog, Temperament} = require("../db");
 
 // Creamos un nuevo perro con los datos enviados en el body
 const postDog = async (req, res) =>{
-    const {name, heightMin, heightMax, weightMin, weightMax, lifeSpanMin, lifeSpanMax, img, temperament} = req.body;// Creamos un nuevo perro con los datos enviados en el body
+    const {name, heightMin, heightMax, weightMin, weightMax, life_span, img, temperament} = req.body;// Creamos un nuevo perro con los datos enviados en el body
     try {
         const newDog = await Dog.create({
             name: name, 
@@ -14,8 +14,7 @@ const postDog = async (req, res) =>{
             weightMin: weightMin,
             weightMax: weightMax,
             img: img,
-            lifeSpanMin: lifeSpanMin,
-            lifeSpanMax: lifeSpanMax
+            life_span: life_span,
             });
 // Buscamos los temperamentos que se enviaron en el body
         const getTemperament= await Temperament.findAll({

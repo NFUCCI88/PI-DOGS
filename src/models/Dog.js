@@ -33,11 +33,7 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    lifeSpanMin:{ 
-      type:DataTypes.INTEGER,
-      allowNull: false,
-    },
-    lifeSpanMax:{ 
+    life_span:{ 
       type:DataTypes.INTEGER,
       allowNull: false,
     },
