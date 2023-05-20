@@ -6,7 +6,7 @@ const { Dog, Temperament} = require("../db");
 // Creamos un nuevo perro con los datos enviados en el body
 const updateDog = async (req, res) =>{
     const {id} = req.params;
-    const {name, heightMin, heightMax, weightMin, weightMax, lifeSpanMin, lifeSpanMax, img, temperament} = req.body;
+    const {name, heightMin, heightMax, weightMin, weightMax, life_span, img, temperament} = req.body;
     try {
         const newDog = await Dog.update({
             name: name, 
@@ -15,8 +15,7 @@ const updateDog = async (req, res) =>{
             weightMin: weightMin,
             weightMax: weightMax,
             img: img,
-            lifeSpanMin: lifeSpanMin,
-            lifeSpanMax: lifeSpanMax
+            life_span: life_span
             },
             {
                 where:{

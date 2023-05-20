@@ -39,9 +39,11 @@ const getDogsApi = async() => {
              id:dog.id,
              img:dog.image.url,
              name: dog.name,
-             height:dog.height.metric,
-             weight:isNaN(dog.weight.metric[0])? "5 - 30" : dog.weight.metric,
-             lifeSpan:dog.life_span,
+             heightMin: dog.height.metric.split(" - ")[0],
+             heightMax: dog.height.metric.split(" - ")[1],
+             weightMin: dog.weight.metric.split(" - ")[0],
+             weightMax: dog.weight.metric.split(" - ")[1],
+             life_span: dog.life_span,
              temperament: dog.temperament,
              from: "API"
              
