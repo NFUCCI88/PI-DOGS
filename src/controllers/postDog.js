@@ -1,9 +1,6 @@
 const { Dog, Temperament} = require("../db");
 
 
-
-
-// Creamos un nuevo perro con los datos enviados en el body
 const postDog = async (req, res) =>{
     const {name, heightMin, heightMax, weightMin, weightMax, life_span, img, temperament} = req.body;// Creamos un nuevo perro con los datos enviados en el body
     try {

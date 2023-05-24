@@ -1,8 +1,6 @@
 const { Dog, Temperament} = require("../db");
 
 
-
-
 // Creamos un nuevo perro con los datos enviados en el body
 const updateDog = async (req, res) =>{
     const {id} = req.params;
@@ -21,7 +19,6 @@ const updateDog = async (req, res) =>{
                 where:{
                     id,
                 },
-                
             }
             );
 // Buscamos los temperamentos que se enviaron en el body
@@ -29,7 +26,6 @@ const updateDog = async (req, res) =>{
             where:{
                 id:temperament,
             }
-
         });
         // Eliminamos los temperamentos del perro
 	    const dog = await Dog.findByPk(id);
